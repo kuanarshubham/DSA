@@ -1,0 +1,6 @@
+QUESTION:
+
+1. next greater element
+2. prev greater element
+3. next smaller element
+4. prev smaller element
