@@ -1,0 +1,7 @@
+Left < Middle < Right
+
+Ideally duplicates are not allowed.
+
+But sometimes they our and to deal with them -
+    1. store pair<val count>
+    2. condition change to - Left < Middle <= Right
