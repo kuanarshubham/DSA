@@ -1,0 +1,4 @@
+Find the floor of the key given i.e
+
+if key = 11
+find node->val <= key
