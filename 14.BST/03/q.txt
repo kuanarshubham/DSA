@@ -1,0 +1,4 @@
+Find the ceil of the key given i.e
+
+if key = 11
+find val >= 11
