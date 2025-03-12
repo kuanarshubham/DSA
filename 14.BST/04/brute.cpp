@@ -40,17 +40,44 @@ Node* addNode(Node *root, int x){
     return root;
 }
 
+void traversal(Node *root){
+    if(root==NULL) cout<<"No value"<<endl;
+
+    queue<Node*> q;
+    vector<int> v;
+
+    q.push(root);
+
+    while(!q.empty()){
+        Node *frontVal = q.front();
+
+        if(frontVal->left) q.push(frontVal->left);
+        
+        if(frontVal->right) q.push(frontVal->right);
+
+        v.push_back(frontVal->val);
+        q.pop();
+    }
+
+    for(auto it: v){
+        cout<<it<<" ";
+    }
+    cout<<endl;
+}
+
 int main(){
-    Node *head = new Node(4);
+    Node *head = new Node(5);
     Node *n1 = new Node(2);
-    Node *n2 = new Node(7);
-    Node *n3 = new Node(1);
-    Node *n4 = new Node(3);
+    Node *n2 = new Node(8);
+    //Node *n3 = new Node(2);
+    Node *n4 = new Node(4);
 
     head->left = n1;
     head->right = n2;
-    n1->left = n3;
-    n1->left = n4;
+    //n1->left = n3;
+    n1->right = n4;
 
-    addNode(head, 5);
+    traversal(head);
+    traversal(addNode(head, 3));
+
 }
