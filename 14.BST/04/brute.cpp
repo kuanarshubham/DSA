@@ -5,8 +5,7 @@ using namespace std;
 class Node{
     public:
     int val;
-    Node *left;
-    Node *right;
+    Node* left, *right;
 
     Node(int x){
         this->val = x;
@@ -15,51 +14,43 @@ class Node{
     }
 };
 
-int floorVal(Node *root, int key){
-    int floor = -1;
+Node* addNode(Node *root, int x){
+    Node *newNode = new Node(x);
+    if(root == NULL) return newNode;
+    
+    Node *temp = root;
 
-    while(root){
-        if(root->val == key){
-            floor = root->val;
-            return floor;
+    while(true){
+        if(x > temp->val){
+            if(temp->right!=NULL) temp = temp->right;
+            else{
+                temp->right = newNode;
+                break;
+            }
         }
-        
-        if(root->val < key){
-            floor = root->val;
-            root = root->right;
-        }
-        else{
-            root = root->left;
+        else if(x < temp->val){
+            if(temp->left != NULL) temp = temp->left;
+            else{
+                temp->left = newNode;
+                break;
+            }
         }
     }
 
-    return floor;
+    return root;
 }
 
 int main(){
-    Node *n0 = new Node(10);
-    Node *n1 = new Node(5);
-    Node *n2 = new Node(13);
-    Node *n3 = new Node(3);
-    Node *n4 = new Node(6);
-    Node *n5 = new Node(11);
-    Node *n6 = new Node(14);
-    Node *n7 = new Node(2);
-    Node *n8 = new Node(4);
-    Node *n9 = new Node(9);
+    Node *head = new Node(4);
+    Node *n1 = new Node(2);
+    Node *n2 = new Node(7);
+    Node *n3 = new Node(1);
+    Node *n4 = new Node(3);
 
-    n0->left = n1;
-    n0->right = n2;
-
+    head->left = n1;
+    head->right = n2;
     n1->left = n3;
-    n1->right = n4;
-    n2->left = n5;
-    n2->right = n6;
+    n1->left = n4;
 
-    n3->left = n7;
-    n3->right = n8;
-    n4->right = n9;
-
-    cout<<floorVal(n0, 8);
+    addNode(head, 5);
 }
-

@@ -37,6 +37,27 @@ int ceilVal(Node *root, int key){
     return ceil;
 }
 
+int floorVal(Node *root, int key){
+    int floor = -1;
+
+    while(root){
+        if(root->val == key){
+            floor = root->val;
+            return floor;
+        }
+        
+        if(root->val < key){
+            floor = root->val;
+            root = root->right;
+        }
+        else{
+            root = root->left;
+        }
+    }
+
+    return floor;
+}
+
 int main(){
     Node *n0 = new Node(10);
     Node *n1 = new Node(5);
@@ -61,6 +82,7 @@ int main(){
     n3->right = n8;
     n4->right = n9;
 
-    cout<<ceilVal(n0, 8);
+    cout<<ceilVal(n0, 8)<<endl;
+    cout<<floorVal(n0, 8);
 }
 
