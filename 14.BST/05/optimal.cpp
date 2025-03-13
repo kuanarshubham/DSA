@@ -1,3 +1,7 @@
+//NO USE OF VECTOR TO STORE ALL THE VALUES OF TREE
+
+
+
 #include<iostream>
 #include<bits/stdc++.h>
 using namespace std;
@@ -14,19 +18,24 @@ class Node{
     }
 };
 
-void inorder(Node *root, vector<int> &v){
+void inorder(Node *root, int &count, int k, int &ans){
     if(root==NULL) return;
-    if()
 
-    inorder(root->left, v);
-    v.push_back(root->val);
-    inorder(root->right, v);
+    inorder(root->left, count, k, ans);
+    count++;
+
+    if(count == k){
+        ans = root->val;
+        return;
+    }
+
+    inorder(root->right, count, k, ans);
 }
 
 int kthSmallestElement(Node *root, int k){
-    vector<int> v;
-    inorder(root, v);
-    return v[k-1];
+    int count =0, ans;
+    inorder(root, count, k, ans);
+    return ans;
 }
 
 int main(){
@@ -42,5 +51,4 @@ int main(){
     n1->right = n4;
 
     cout<<kthSmallestElement(head, 2);
-
 }
