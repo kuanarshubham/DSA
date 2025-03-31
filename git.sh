@@ -3,4 +3,4 @@ git add .
 git commit -m "$DATE"
 git push origin main
 
-chmod +x auto-git.sh
+chmod +x git.sh
