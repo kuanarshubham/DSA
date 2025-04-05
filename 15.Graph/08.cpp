@@ -14,10 +14,6 @@ bool bfs(int node, vector<vector<int>>g, vector<int>&vis){
 
         for(auto it: g[node]){
             
-
-
-
-            the
         }
     }
 }
