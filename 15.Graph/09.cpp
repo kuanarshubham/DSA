@@ -49,6 +49,11 @@ vector<vector<int>> nearest1(vector<vector<int>> &grid)
 
     vector<vector<int>> dist(grid.size(), vector<int>(grid[0].size(), -1));
 
+
+
+
+
+
     recc(grid, vis, dist);
 
     for(auto it: dist){
