@@ -22,7 +22,12 @@ int numOfEnclaves(vector<vector<int>> grid)
         if (grid[0][i] == 1)
             q.push({0, i});
         if (grid[grid[0].size() - 1][i] == 1)
-            q.push({grid[0].size() - 1, i});
+            q.push({grid
+            
+            
+            
+            
+            [0].size() - 1, i});
     }
 
     while (!q.empty())
