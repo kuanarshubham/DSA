@@ -1,4 +1,3 @@
-
 # DSA using C++ Notes
 
 All Striver's A-Z's sheet question solution along with approch.
@@ -17,6 +16,7 @@ Around 56 question are there which includes:
 
 #### 1. Matrix Representation
 
+##### i. Adjacency List
 
 ```cpp
 vector<vector<int>> g = {
@@ -30,4 +30,16 @@ vector<vector<int>> g = {
         {6, 8},
         {5, 7},
         {9}};
+```
+
+##### ii. Matrix Format
+
+```cpp
+vector<vector<int>> g = {
+        {0, 0, 0, 1, 1},
+        {0, 0, 1, 1, 0},
+        {0, 1, 0, 0, 0},
+        {0, 1, 1, 0, 0},
+        {0, 0, 0, 1, 1}
+    };
 ```
