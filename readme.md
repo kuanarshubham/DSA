@@ -18,7 +18,7 @@ Around 56 question are there which includes:
 #### 1. Matrix Representation
 
 
-```c++
+```cpp
 vector<vector<int>> g = {
         {},
         {2, 6},
