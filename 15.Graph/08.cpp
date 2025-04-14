@@ -59,5 +59,8 @@ int main(){
         {7, 8}
     };
 
+
+    
+
     cout<<detectCycle(graph);
 }
