@@ -1,4 +1,4 @@
-//topo sort
+//topo sort - dfs 
 
 #include<iostream>
 #include<bits/stdc++.h>
