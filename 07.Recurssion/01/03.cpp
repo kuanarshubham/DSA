@@ -12,7 +12,7 @@ void sortInsert(stack<int>&s, int x){
 
     int temp = s.top();
     s.pop();
-    s.push(x);
+    sortInsert(s, x);
     s.push(temp);
 }
 
