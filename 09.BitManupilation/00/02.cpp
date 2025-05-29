@@ -19,19 +19,6 @@ int sub(int x, int y){
     return add(x, add(~y, 1));
 }
 
-// int divide(int x, int y){
-//     int count  = 0;
-
-//     if(y>)
-
-//     while(x>0 && x>y){
-//         x = sub(x, y);
-//         count++;
-//     }
-
-//     return count;
-// }
-
 int main(){
     cout<<sub(10, 5)<<" "<<sub(20, 40)<<endl;
     //cout<<divide(10, 3)<<endl;
