@@ -75,6 +75,9 @@ string longestStringOptimal(string s){
         if(ans.size() < temp.size()) ans = temp;
         cout<<hash[int(s[r])];
         r++;
+        
+
+
     }
 
     return ans;
