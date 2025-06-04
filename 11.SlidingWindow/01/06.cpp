@@ -52,13 +52,15 @@ int fruitInBasketOptimal(vector<int>&v, int fruits){
         mpp[v[r]]++;
 
         if(mpp.size()>fruits){
-            int x = v[l];
-            if(mpp[x]!=0){
+            while(mpp.size() > fruits){
                 mpp[v[l]]--;
+
+                if(mpp[v[l]] == 0){
+                    mpp.erase(v[l]);
+                }
+
                 l++;
             }
-
-            if(mpp[x] == 0) mpp.erase(x);
         }
 
         maxLen = max(maxLen, r-l+1);
