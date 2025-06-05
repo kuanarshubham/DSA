@@ -26,6 +26,7 @@ string longestSubstringBrute(string s, int k){
             if(maxLen < j-i+1){
                 maxLen = j-i+1;
                 temp.push_back(s[j]);
+                
             }
         }
     }
