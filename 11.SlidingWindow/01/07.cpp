@@ -1,69 +1,64 @@
-// Longest Substring with At Most K Distinct Characters
+// Number of substring containing all three characters
 
 #include<iostream>
 #include<bits/stdc++.h>
 using namespace std;
 
-string longestSubstringBrute(string s, int k){
-    int n = s.size(), maxLen = 0;
-    string ans="";
+int noContainingAll3CharBrute(string s){
+    int count=0, n=s.size();
+    unordered_map<int, int> mpp;
 
     for(int i=0; i<n; i++){
-        set<char>schar;
-        string temp = "";
+        mpp.clear();
         for(int j=i; j<n; j++){
-            schar.insert(s[j]);
-
-            if(schar.size() > k){
-                if(temp.size() > ans.size()){
-                    ans = temp;
-                }
-
-                temp = "";
-                break;
-            }
+            mpp[s[j]] = 1;
             
-            if(maxLen < j-i+1){
-                maxLen = j-i+1;
-                temp.push_back(s[j]);
-                
+            if(mpp['a'] == 1 && mpp['b'] == 1 && mpp['c'] == 1){
+                count++;
             }
         }
     }
 
-    return ans;
+    return count;
 }
 
-string longestSubstringBetter(string s, int k){
-    int n=s.size(), l=0, r=0, maxLen = 0, stratIdx =0;
+int noContainingAll3CharBetter(string s){
+    int n=s.size(), count=0;
+    unordered_map<int, int> mpp;
 
-    map<int, int> mpp;
-
-    while(r<n){
-        mpp[s[r]]++;
-
-        if(mpp.size()>k){
-
-            while(mpp.size() > k){
-                mpp[s[l]]--;
-                if(mpp[s[l]] == 0) mpp.erase(s[l]);
-                l++;
+    for(int i=0; i<n; i++){
+        mpp.clear();
+        for(int j=i; j<n; j++){
+            mpp[s[j]] = 1;
+            
+            if((mpp['a'] == 1) && (mpp['b'] == 1) && (mpp['c'] == 1)){
+                count+=(n-j);
+                break;
             }
         }
+    }
 
-        if(r-l+1 > maxLen){
-            maxLen = r-l+1;
-            stratIdx = l;
-        }
+    return count;
+}
+
+// ending with a min substring with abc/bac/cba/cab/acb/bca and then takes the substring from left
+int noContainingAll3CharOptimal(string s){
+    int n=s.size(), r=0, count=0;
+    int arr[3] = {-1, -1, -1};
+
+    while(r<n){
+        arr[s[r] - 'a'] = r; 
+        
+        if(arr[0] != -1 && arr[1] != -1 && arr[2] != -1) count += (1 + min(min(arr[0], arr[1]), arr[2]));
 
         r++;
     }
 
-    return s.substr(stratIdx, maxLen);
+    return count;
 }
 
-
 int main(){
-    string s = "abcddefg";
-    cout<<longestSubstringBrute(s, 3)<<" "<<longestSubstringBetter(s, 3);
+    string s = "bbacba";
+    
+    cout<<noContainingAll3CharBrute(s)<<" "<<noContainingAll3CharBetter(s)<<" "<<noContainingAll3CharOptimal(s)<<endl;
 }
