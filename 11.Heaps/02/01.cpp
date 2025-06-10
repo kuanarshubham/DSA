@@ -33,8 +33,7 @@ void heapify(vector<int>&v, int i, int n){
     return;
 }
 
-void deletion(vector<int>&v){
-    int n = v.size();
+void deletion(vector<int>&v, int n){
 
     if(n == 0) return;
     if(n == 1){
@@ -43,6 +42,8 @@ void deletion(vector<int>&v){
     }
 
     v[0] = v[n-1];
+    v.pop_back();
+    n = v.size();
 
     int i=0;
     
@@ -74,7 +75,8 @@ int kthGreatestElementOptimal(vector<int>&v, int k){
     int times = 1, ans;
 
     while(times <= k){
-        ans = v[times-1];
+        ans = v[0];
+        deletion(v, v.size());
         times++;
     }
 

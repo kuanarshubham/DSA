@@ -4,15 +4,17 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-bool isMinHeap(vector<int>&v){
-    int i=0, n=v.size();
+bool isMinHeap(vector<int>&v, int i, int n){
 
-    while(i<n-1){
-        if(v[i] < v[i+1]) return true;
-        i++;
-    }
+    int c1 = i*2+1, c2=i*2+2;
 
-    return false;
+    if(c1 < n && v[c1] < v[i]) return false;
+    if(c2 < n && v[c2] < v[i]) return false;
+
+    int left = isMinHeap(v, c1, n);
+    int right = isMinHeap(v, c2, n);
+
+    
 }
 
 int main(){
