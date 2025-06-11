@@ -5,6 +5,7 @@
 using namespace std;
 
 bool isMinHeap(vector<int>&v, int i, int n){
+    if(i >= n) return true;
 
     int c1 = i*2+1, c2=i*2+2;
 
@@ -14,11 +15,11 @@ bool isMinHeap(vector<int>&v, int i, int n){
     int left = isMinHeap(v, c1, n);
     int right = isMinHeap(v, c2, n);
 
-    
+    return left && right;  
 }
 
 int main(){
-    vector<int>v = {1, 2, 3, 4, 5, 6};
+    vector<int>v = {1, 7, 3, 4, 5, 6};
 
-    cout<<isMinHeap(v);
+    cout<<isMinHeap(v, 0, v.size());
 }
