@@ -10,7 +10,7 @@ class Job{
         float profit;
         int deadline;
 
-        Job(int id, float profit, int deadline){
+        Job(int id, int deadline, float profit){
             this->id = id;
             this->profit = profit;
             this->deadline = deadline;
@@ -30,13 +30,14 @@ pair<int, int>jobSeqProb(vector<Job*>&jobs){
         maxDays = max(maxDays, jobs[i]->deadline);
     }
 
-    cout<<maxDays;
 
-    int days[maxDays+1] = {-1};
+    // int days[maxDays+1] = {-1};
+
+    vector<int>days(maxDays+1, -1);
 
     for(int i=0; i<n; i++){
-        for(int j=jobs[i]->deadline; j>=0; j--){
-            if(days[j] != -1){
+        for(int j=jobs[i]->deadline; j>=1; j--){
+            if(days[j] == -1){
                 count++;
                 total += jobs[i]->profit;
                 days[j] = jobs[i]->id;
