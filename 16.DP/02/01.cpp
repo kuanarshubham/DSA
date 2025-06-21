@@ -40,15 +40,20 @@ int maxPointsMemo(vector<vector<int>>&matrix){
     return recc(matrix.size()-1, 3, matrix, dp);
 }
 
-int maxPointtab(vector<vector<int>>&matrix){
+int maxPointTab(vector<vector<int>>&matrix){
     int n = matrix.size();
-    vector<vector<int>>dp(n, vector<int>(4, -1));
+    vector<vector<int>>dp(n, vector<int>(4, 0));
 
-    for(int i=0; i<=2; i++){
-        dp[0][i] = matrix[0][i];
+    dp[0][0] = max(matrix[0][1], matrix[0][2]);
+    dp[0][1] = max(matrix[0][0], matrix[0][2]);
+    dp[0][2] = max(matrix[0][1], matrix[0][0]);
+    dp[0][3] = max(matrix[0][1], max(matrix[0][2], matrix[0][0]));
+
+    for(int day =1; day<n; day++){
+        for(int last = 0; last<4; last++){
+            dp[]
+        }
     }
-
-    for(int i=0; )
 }
 
 int main(){
