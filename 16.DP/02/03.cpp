@@ -28,7 +28,43 @@ int uniqueWaysMemo(vector<vector<int>>&mat){
 }
 
 int uniqueWaysTabs(vector<vector<int>>&mat){
-    
+    int m=mat.size(), n=mat[0].size();
+    vector<vector<int>>dp(m, vector<int>(n, -1));
+
+    for(int row=0; row<m; row++){
+        for(int col=0; col<n; col++){
+            if(row==0 && col==0) {
+                dp[0][0] = 1;
+                continue;
+            }
+
+            if(mat[row][col] == -1) dp[row][col] = 0;
+            else if(row==0 && col!=0) dp[row][col] = dp[row][col-1];
+            else if(row!=0 && col==0) dp[row][col] = dp[row-1][col];
+            else dp[row][col] = dp[row-1][col] + dp[row][col-1];
+        }
+    }
+
+    return dp[m-1][n-1];
+}
+
+int spaceOpt(vector<vector<int>>&mat){
+    int m=mat.size(), n=mat[0].size();
+    vector<int>prev(n, 1);
+
+    for(int row=1; row<m; row++){
+        vector<int>temp(n, 0);
+        for(int col=0; col<n; col++){
+            if(mat[row][col] == -1) prev[col] = 0;
+            else if(row==0 && col!=0) temp[col] = 1;
+            else if(row!=0 && col==0) temp[col] = 1;
+            else temp[col] = temp[col-1] + prev[col];
+        }
+
+        prev = temp;
+    }
+
+    return prev[n-1];
 }
 
 int main(){
@@ -38,5 +74,5 @@ int main(){
         {1, 1, 1}
     };
 
-    cout<<uniqueWaysMemo(mat);
+    cout<<uniqueWaysMemo(mat)<<" "<<uniqueWaysTabs(mat)<<" "<<spaceOpt(mat);
 }
