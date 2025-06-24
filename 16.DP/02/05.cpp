@@ -30,15 +30,41 @@ int minSumMemo(vector<vector<int>>&arr){
 int minSumTabs(vector<vector<int>>&arr){
     int row = arr.size(), col=row;
 
-    if(row==1) return arr[0][0];
-
     vector<vector<int>>dp(row, vector<int>(col, -1));
 
-    for(int i=0; i<row; i++){
-        for(int j=0; j<col; j++){
-            if(i==0 && j==0)
+    for(int j=0; j<col; j++){
+        dp[row-1][j] = arr[row-1][j];
+    }
+
+    for(int i=row-2; i>=0; i--){
+        for(int j=i; j>=0; j--){
+            int up = arr[i][j] + dp[i+1][j];
+            int diagonal = arr[i][j] + dp[i+1][j+1];
+
+            dp[i][j] = min(up, diagonal);
         }
     }
+
+    return dp[0][0];
+}
+
+int spaceOpt(vector<vector<int>>&arr){
+    int row = arr.size(), col=row;
+
+    vector<int>prev(arr[row-1].begin(), arr[row-1].end()), temp(col, -1);
+
+    for(int i=row-2; i>=0; i--){
+        for(int j=i; j>=0; j--){
+            int up = arr[i][j] + prev[j];
+            int diagonal = arr[i][j] + prev[j+1];
+
+            temp[j] = min(up, diagonal);
+        }
+
+        prev = temp;
+    }
+
+    return prev[0];
 }
 
 int main(){
@@ -49,5 +75,5 @@ int main(){
         {4, 1, 8, 3}
     };
 
-    cout<<minSumMemo(arr)<<" ";
+    cout<<minSumMemo(arr)<<" "<<minSumTabs(arr)<<" "<<spaceOpt(arr)<<endl;
 }
