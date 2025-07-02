@@ -12,14 +12,18 @@ vector<int>nse(vector<int>&arr){
     st.push(arr[0]);
 
     for(int i=1; i<n; i++){
-        if(st.top()<arr[i]){
-            ans[i]=st.top();
-        }
-        else{
-            while(!st.empty() && st.top()>arr[i]) st.pop();
+        if(!st.empty()){
+            if(st.top()<arr[i]){
+                ans[i]=st.top();
+            }
+            else{
+                while(!st.empty() && st.top()>arr[i]) st.pop();
 
-            if(!st.empty()) ans[i]=st.top();
+                if(!st.empty()) ans[i]=st.top();
+            }
         }
+
+        st.push(arr[i]);
     }
 
     return ans;
