@@ -36,6 +36,12 @@ int trappedWaterOptimal(vector<int>&height){
         if(lmax<rmax){
             totalWater+=lmax-height[l];
             l++;
+
+
+
+
+
+            
         }
         else{
             totalWater+=rmax-height[r];
