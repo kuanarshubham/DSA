@@ -1,22 +1,43 @@
-// dijkstra algo
+// word ladder 1
 
 #include<iostream>
 #include<bits/stdc++.h>
 using namespace std;
 
-vector<int> dijkstra(vector<vector<pair<int, int>>>&g, int src){
-    
+int ladderLenght(vector<string>&wordList, string targetWord, string startWord){
+    queue<pair<string, int>>q;
+    unordered_set<string>st(wordList.begin(), wordList.end());
+
+    q.push({startWord, 0});
+    if(st.find(startWord)!=st.end()) st.erase(startWord);
+
+    while(!q.empty()){
+        string word = q.front().first;
+        int step = q.front().second;
+
+        q.pop();
+
+        if(word==targetWord) return step;
+
+        for(int i=0; i<word.size(); i++){
+            char originalChar=word[i];
+
+            for(char j='a'; j<='z'; j++){
+                word[i]=j;
+
+                if(st.find(word)!=st.end()){
+                    q.push({word, step+1});
+                    st.erase(word);
+                }
+            }
+            
+            word[i]=originalChar;
+        }
+    }
+
+    return 0;
 }
 
 int main(){
-    vector<vector<pair<int, int>>>g = {
-        {{1, 4}, {2, 4}},
-        {{0, 4}, {2, 2}},
-        {{0, 4}, {1, 2}, {3, 3}, {4, 1}, {5, 6}},
-        {{2, 3}, {5, 2}},
-        {{2, 1}, {5, 3}},
-        {{2, 6}, {3, 2}, {4, 3}}
-    };
-
 
 }
