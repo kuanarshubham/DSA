@@ -16,13 +16,22 @@ vector<int>shortestPath(vector<vector<pair<int, int>>>&graph, int src){
     pq.push({0, src});
 
     while(!pq.empty()){
-        int distance=pq.top().first, node=pq.top().second;
+        int distance=pq.top().first;
+        int node=pq.top().second;
         pq.pop();
 
         for(auto it: graph[node]){
-            
+            int adjNode=it.first;
+            int adjDistance=it.second;
+
+            if(adjDistance+distance<dist[adjNode]){
+                dist[adjNode]=adjDistance+distance;
+                pq.push({dist[adjNode], adjNode});
+            }
         }
     }
+
+    return dist;
 }
 
 int main(){
