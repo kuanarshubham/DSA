@@ -11,7 +11,7 @@ int minTime(int n, vector<vector<int>>&edges){
         graph[it[0]].push_back({it[1], it[2]});
     }
 
-    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<vector<int, int>>>pq;
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<vector<pair<int, int>>>>pq;
     pq.push({0, 0});
 
     vector<int>dist(n, 1e9), ways(n, 0);
@@ -29,11 +29,11 @@ int minTime(int n, vector<vector<int>>&edges){
 
             if(distance+adjDistance<dist[adjNode]){
                 dist[adjNode]=distance+adjDistance;
-                ways[adjNode]+=ways[node];
+                ways[adjNode]=ways[node];
                 pq.push({dist[adjNode], adjNode});
             }
 
-            if(distance+adjDistance<dist[adjNode]){
+            if(distance+adjDistance==dist[adjNode]){
                 ways[adjNode]+=ways[node];
             }
         }
