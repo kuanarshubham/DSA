@@ -1,4 +1,4 @@
-// DSU using size
+// number of provinces
 
 #include<iostream>
 #include<bits/stdc++.h>
