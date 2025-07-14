@@ -50,6 +50,13 @@ vector<int>getRow(int row){
     return ans;
 }
 
+
+
+
+
+
+
+
 vector<vector<int>>getTraingle(int row){
     int newRow=row-1;
 
