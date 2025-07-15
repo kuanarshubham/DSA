@@ -52,11 +52,6 @@ vector<int>getRow(int row){
 
 
 
-
-
-
-
-
 vector<vector<int>>getTraingle(int row){
     int newRow=row-1;
 
