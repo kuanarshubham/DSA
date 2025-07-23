@@ -1,45 +1,31 @@
-# DSA using C++ Notes
+# DSA Practice Repository
 
-All Striver's A-Z's sheet question solution along with approch.
+This repo is my personal grind zone for Data Structures and Algorithms, following **Striver’s 455-question playlist/DSA sheet**. It’s a structured collection of solutions organized by topic and difficulty to level up my problem-solving game.
 
-## 15. Graph
+## Repo Structure
 
-Around 56 question are there which includes:
+- `03.Array/03` — Array problems.
+- `04.BinarySearch` — Binary Search techniques.
+- `06.LinkedList` — Linked List challenges.
+- `07.Recursion` — Recursion-based problems.
+- `08.BitManipulation` — Bit manipulation tricks.
+- `09.StacksQueues` — Stacks and Queues.
+- `10.SlidingWindow` — Sliding window pattern.
+- `11.Heaps` — Heap data structures.
+- `12.Greedy` — Greedy algorithms.
+- `14.BST` — Binary Search Tree problems.
+- `15.Graph` — Graph algorithms.
+- `16.DP` — Dynamic Programming.
 
-| Type             | Number                                                                |
-| ----------------- | ------------------------------------------------------------------ |
-| Reprentation | 2 |
-| Traversal (BFS / DFS) | 2 |
+## Automation Script - `git.sh`
 
+A quick Linux shell script to automate Git pushes:
 
+- Adds all changes (`git add .`)
+- Commits with current timestamp as message (`git commit -m "$DATE"`)
+- Pushes to `main` branch (`git push origin main`)
 
+Make it executable with:
 
-#### 1. Matrix Representation
-
-##### i. Adjacency List
-
-```cpp
-vector<vector<int>> g = {
-        {},
-        {2, 6},
-        {1, 3, 4},
-        {2},
-        {2, 5},
-        {4, 8},
-        {1, 7, 9},
-        {6, 8},
-        {5, 7},
-        {9}};
-```
-
-##### ii. Matrix Format
-
-```cpp
-vector<vector<int>> g = {
-        {0, 0, 0, 1, 1},
-        {0, 0, 1, 1, 0},
-        {0, 1, 0, 0, 0},
-        {0, 1, 1, 0, 0},
-        {0, 0, 0, 1, 1}
-    };
-```
+```bash
+chmod +x git.sh
