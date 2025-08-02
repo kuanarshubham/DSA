@@ -51,3 +51,44 @@ int spaceOpt(vector<int>&nums){
 
     return ahead[0];
 }
+
+
+int equivalentToSpaceOpt(vector<int>&nums){
+    int n=nums.size();
+
+    vector<int>dp(n, 1);
+
+    int maxi=INT_MIN;
+
+    for(int idx=0; idx<n; idx++){
+        for(int prev=0; prev<idx; prev++){
+            if(nums[prev]<nums[idx]){
+                dp[idx] = max(1+dp[prev], dp[idx]);
+            }
+        }
+
+        maxi = max(maxi, dp[idx]);
+    }
+
+    return maxi;
+}
+
+
+int bestMethod(vector<int>&nums){
+    int n=nums.size();
+
+    vector<int>temp;
+    temp.push_back(nums[0]);
+
+    for(int i=0; i<n; i++){
+        if(nums[i]>temp.back()){
+            temp.push_back(nums[i]);
+        }
+        else{
+            int idx = lower_bound(temp.begin(), temp.end(), nums[i])-temp.begin();
+            temp[idx]=nums[i];
+        }
+    }
+
+    return temp.size();
+}

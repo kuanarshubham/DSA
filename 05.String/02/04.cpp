@@ -7,6 +7,7 @@ using namespace std;
 int brute(string s){
     int n=s.size();
 
+    
     // running to remove the starting of whitespaces
     int i=0;
     for(auto it: s){
@@ -24,11 +25,23 @@ int brute(string s){
         s=s.substr(1);
     }
     else if(s[0]=='+') s=s.substr(1);
-    else if(s[0]<ascii0 || s[0]>ascii9) return 1e9;
+    else if(s[0]<ascii0 || s[0]>ascii9) return 0;
 
+    
+    
     int ans =0;
 
     for(auto it: s){
-        int value = (int)it - 
+        if(it>=ascii0 && it<=ascii9){
+            ans*=10;
+            int value = (int)it - ascii0;
+            ans+=value;
+        }
     }
+
+    return sign*ans;
+}
+
+int main(){
+    cout<<brute("           627as");
 }
