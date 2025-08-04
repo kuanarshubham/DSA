@@ -16,14 +16,45 @@ class Node{
     }
 };
 
+Node *helper(Node* parent){
+    if(parent->left==NULL) return parent->left;
+    else if(parent->right==NULL) return parent->right;
+
+    Node *temp=parent->left;
+    
+    while(temp->right!=NULL){
+        temp=temp->right;
+    }
+
+    temp=parent->right;
+    return parent->left;
+}
+
 Node *optimal(Node* root, int val){
     if(root==NULL || root->value==val) return NULL;
 
-    Node *temp = root, *leftTemp=NULL;
+    Node *temp = root;
 
-    while(true){
-        if(root->value==val){
-            
+    while(root!=NULL){
+        if(root->value>val){
+            if(root->left!=NULL && root->left->value==val){
+                root->left=helper(root->left);
+                break;
+            }
+            else{
+                root=root->left;
+            }
+        }
+        else{
+            if(root->right!=NULL && root->right->value==val){
+                root->right=helper(root->right);
+                break;
+            }
+            else{
+                root=root->right;
+            }
         }
     }
+
+    return temp;
 }
