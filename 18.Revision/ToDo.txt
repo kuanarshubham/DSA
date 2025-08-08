@@ -1,0 +1,6 @@
+Recurssion:
+
+    Combinational sum II & 
+    Subset sum II
+        NOTE: remember the condition (i>start && nums[i]!=nums[i-1])
+

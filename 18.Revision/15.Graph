@@ -1,0 +1,19 @@
+BFS/DFS:
+    1. Flood fill:
+        - always use a grid mxn as visited array
+    
+    2. Rotton Oranges:
+        - use a counter at the end to check if all oranges are rotten
+        - use a {{row, col}, timer}
+        - timer = max(timer, t);
+    
+    3. Cycle Detection:
+        - BFS
+            - create a vis array
+            - use that array: and check 
+                if(vis[i]) return True;
+            - store {node, coming_from}
+        
+        - DFS
+            - 
+        
