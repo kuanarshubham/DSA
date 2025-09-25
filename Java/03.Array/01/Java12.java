@@ -1,43 +1,36 @@
-// longest subarray with given sum k
-
-import java.util.*;
+// longest subarray with given sum k for positive number
 
 public class Java12 {
 
     public static int[] longestSubarrayWithSumK(int[]nums, int k){
-        int sum =0, n=nums.length;
+        int n=nums.length;
 
-        HashMap<Integer, Integer>map = new HashMap<Integer, Integer>();
+        int i=0, j=0, sum=0, startIdx=-1, endIdx=-1, size=0;
 
-        map.put(0, -1);
+        while(j<n){
+            sum+=nums[j];
 
-        int startingIdx=-1, endingIdx = -1, size = 0;
-
-        for(int i=0; i<n; i++){
-            sum+=nums[i];
-
-            if (!map.containsKey(sum)) {
-                map.put(sum, i);
+            while(sum>k && i<=j){
+                sum-=nums[i];
+                i++;
             }
-            
-            int remaining = sum-k;
 
-            if(map.containsKey(remaining)){
-                int currEnd = i, currStart = map.get(remaining)+1;
-
-                if(size < currEnd-currStart+1){
-                    endingIdx = i;
-                    startingIdx = map.get(remaining)+1;
-                    size = currEnd-currStart+1;;
+            if(sum==k){
+                if(size < j-i+1){
+                    startIdx=i;
+                    endIdx=j;
+                    size=j-i+1;
                 }
             }
+
+            j++;
         }
 
-        return new int[]{startingIdx, endingIdx};
+        return new int[]{startIdx, endIdx};
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[]{2, 3, 4, 5, 6};
+        int[] nums = new int[]{2, 3, 4, 5, 0, 0, 6};
 
         int[] idx = longestSubarrayWithSumK(nums, 9);
 
