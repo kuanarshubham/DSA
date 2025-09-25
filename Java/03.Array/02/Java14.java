@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Java01 {
+public class Java14 {
 
     public static int[] twoSum(int[]nums, int k){
         int n=nums.length;
