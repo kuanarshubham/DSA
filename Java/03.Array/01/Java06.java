@@ -1,6 +1,5 @@
 // rotate an arry by D places
 
-import java.util.*;
 
 public class Java06 {
 
