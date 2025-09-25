@@ -1,0 +1,20 @@
+A-Z:
+    - reccursive inorder/preorder/postorder
+    - iterative 
+    - level order
+    - single pass dfs(inorder/preorder/postorder)
+        : store <Treenode, int>
+                if num == 1
+                    preorder
+                    num++
+                    left
+                if num == 2
+                    inorder
+                    num++
+                    right
+                if num==3
+                    postorder
+                
+    - maximum depth of tree (either reccursive / iterative)
+    - check if balances(just check right height and left height)
+    - 

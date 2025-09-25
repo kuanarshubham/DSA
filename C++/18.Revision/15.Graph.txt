@@ -13,7 +13,5 @@ BFS/DFS:
             - use that array: and check 
                 if(vis[i]) return True;
             - store {node, coming_from}
-        
-        - DFS
-            - 
+    
         

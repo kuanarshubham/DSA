@@ -1,0 +1,49 @@
+A-Z:
+    - jump 1
+        = optimal
+            : check for zero
+
+    - jump 2
+        = brute
+            : use dp
+        = optimal
+            : use min, max range
+
+    - n meets in a room
+        = optimal
+            : sort according to the ending time
+
+    - insert intervals
+        = optimal
+            : sort acc to the starting time
+
+    - valid paranthesis
+        = brute
+            : use a counter like stack
+            : base case: count<0 => return false
+            : first use recusrion to show * = {'(', ')', ''}
+            : parameters = index, count
+        = optimal
+            : use min, max range
+            : for * = min=-1, max+=1
+            : if(min<0) min = 0
+            if(max<0) return false
+
+    - candy
+        = brute
+            : two pass -> left and right
+            : take max for both and sum it up
+        = optimal
+            : use slope
+            : refer video
+
+    - trains
+        = better
+            : store in (arrTime, A) and (deptTime, D)
+            : sort all together in an array
+            : take a counter, add when A, subs when D
+            : maxCount = max(maxCount, counter)
+        = optimal
+            : sort dept and arr indivisually
+            : use 2 pointers
+            : if (arr < dept) count+=1, else count-=1 
