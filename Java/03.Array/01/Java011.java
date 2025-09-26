@@ -1,4 +1,4 @@
-public class Java11 {
+public class Java011 {
 
     public static int numberThatAppearOnce(int[]nums){
         int xorSum = 0;

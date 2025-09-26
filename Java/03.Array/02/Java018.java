@@ -1,6 +1,6 @@
 // get me the len of maxi subarray sum 
 
-public class Java18 {
+public class Java018 {
     public static long maxSubarraySum(int[] arr, int n) {
         long maxi = Long.MIN_VALUE; // maximum sum
         long sum = 0;

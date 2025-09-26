@@ -2,7 +2,7 @@
 
 import java.util.*;
 
-public class Java20 {
+public class Java020 {
     public static void swap(int[]nums, int x, int y){
         int temp = nums[x];
         nums[x] = nums[y];

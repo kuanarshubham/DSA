@@ -1,6 +1,6 @@
 // maxi subarray sum;
 
-public class Java17 {
+public class Java017 {
     public static int maxiSum(int[]nums){
         int n=nums.length, maxi=Integer.MIN_VALUE, sum=0;
 

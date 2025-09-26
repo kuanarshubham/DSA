@@ -1,6 +1,6 @@
 import java.util.HashMap;
 
-public class Java13 {
+public class Java013 {
     public static int[] longestSubarrayWithSumK(int[]nums, int k){
         int sum =0, n=nums.length;
 

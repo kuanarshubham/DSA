@@ -1,6 +1,6 @@
 // next permuation
 
-public class Java21 {
+public class Java021 {
     public static void swap(int a, int b, int[]nums){
         int temp = nums[a];
         nums[a] = nums[b];

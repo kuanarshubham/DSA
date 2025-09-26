@@ -1,6 +1,6 @@
 // buy sell stock
 
-public class Java19 {
+public class Java019 {
     public static int buySellStock1(int[]days){
         int n=days.length;
 

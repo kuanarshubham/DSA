@@ -1,4 +1,4 @@
-public class Java08 {
+public class Java008 {
     public static int linearSearch(int[]nums, int k){
         int n=nums.length;
         

@@ -1,6 +1,6 @@
 // longest subarray with given sum k for positive number
 
-public class Java12 {
+public class Java012 {
 
     public static int[] longestSubarrayWithSumK(int[]nums, int k){
         int n=nums.length;

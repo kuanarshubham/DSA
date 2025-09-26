@@ -3,7 +3,7 @@
 
 import java.util.Arrays;
 
-public class Java09 {
+public class Java009 {
     public static int[] intersection(int[] arr1, int[]arr2){
         int n1=arr1.length, n2=arr2.length;
 

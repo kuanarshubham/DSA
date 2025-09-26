@@ -2,7 +2,7 @@
 
 import java.util.*;
 
-public class Java05{
+public class Java005{
 
     public static int removeDups(List<Integer>nums){
         int n = nums.size();

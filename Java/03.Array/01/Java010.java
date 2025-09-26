@@ -1,4 +1,4 @@
-public class Java10 {
+public class Java010 {
     public static  int missingNumber(int[]nums){
         int n = nums.length+1;
 

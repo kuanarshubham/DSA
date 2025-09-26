@@ -1,6 +1,6 @@
 // majority element
 
-public class Java16 {
+public class Java016 {
 
     public static int majorityElement(int[]nums){
         int n=nums.length;

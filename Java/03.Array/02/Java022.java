@@ -2,7 +2,7 @@
 
 import java.util.*;
 
-public class Java22 {
+public class Java022 {
     static int[] leader(int[]nums){
         int n=nums.length, maxi=Integer.MIN_VALUE;
 

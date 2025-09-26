@@ -1,7 +1,7 @@
 // rotate an arry by D places
 
 
-public class Java06 {
+public class Java006 {
 
     public static void rotate(int[]nums, int k){
         int n = nums.length;

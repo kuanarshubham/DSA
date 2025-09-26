@@ -1,6 +1,6 @@
 // sort 1's 2's 0's
 
-public class Java15 {
+public class Java015 {
     public static void swap(int a, int b, int[] nums){
         int temp = nums[a];
         nums[a] = nums[b];

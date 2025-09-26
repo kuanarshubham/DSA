@@ -1,7 +1,7 @@
 // move zeros to the end
 
 
-public class Java07 {
+public class Java007 {
 
     public static void swap(int i, int j, int[]nums){
         int temp = nums[i];
