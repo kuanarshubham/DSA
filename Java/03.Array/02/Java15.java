@@ -1,7 +1,5 @@
 // sort 1's 2's 0's
 
-import java.util.Collections;
-
 public class Java15 {
     public static void swap(int a, int b, int[] nums){
         int temp = nums[a];
