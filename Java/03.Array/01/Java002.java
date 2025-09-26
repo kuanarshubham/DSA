@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Java02{
+class Java002{
     public static int secondMax(List<Integer>nums){
         int maxi = Integer.MIN_VALUE, secMaxi = Integer.MIN_VALUE;
 

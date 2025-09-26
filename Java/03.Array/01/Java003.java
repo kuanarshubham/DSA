@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Java03 {
+public class Java003 {
     public static boolean checkSorted(List<Integer>nums){
         int lastMini = Integer.MIN_VALUE;
 

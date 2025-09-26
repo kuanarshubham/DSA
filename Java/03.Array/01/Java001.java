@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Java01 {
+public class Java001 {
     
     public static int maxNumber(List<Integer>nums){
         int maxi=Integer.MIN_VALUE;
