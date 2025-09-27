@@ -1,4 +1,4 @@
-public class Java01 {
+public class Java039 {
     public static int binarySearch(int[]nums, int target){
         int n=nums.length;
 

@@ -1,26 +1,26 @@
-// lower bound
+// upper bound
 
-public class Java02 {
-    public static int lowerBound(int[]nums, int value){
+public class Java041 {
+    public static int upperBound(int[]nums, int value){
         int n=nums.length;
 
-        int low=0, high=n-1, mid, lb=n;
+        int low=0, high=n-1, mid, ub=n;
 
         while(low<=high){
             mid=low+(high-low)/2;
 
-            if(nums[mid]>=value){
-                lb = mid;
+            if(nums[mid]>value){
+                ub = mid;
                 high=mid-1;
             }
             else low = mid+1;
         }
 
-        return lb;
+        return ub;
     }
     public static void main(String[] args) {
         int[] nums = new int[]{3,5,8,15,19};
 
-        System.err.println(lowerBound(nums, 9));
+        System.err.println(upperBound(nums, 8));
     }
 }

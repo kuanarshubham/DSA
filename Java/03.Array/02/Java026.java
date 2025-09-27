@@ -10,19 +10,26 @@ public class Java026 {
 
         int sum=0, count=0;
 
+        map.put(0, 1);
+
         for(int i=0; i<n; i++){
             sum+=nums[i];
-            
             int remaining = k-sum;
 
-            if(map.containsValue(remaining)){
+            if(!map.containsKey(sum)) map.put(sum, 1);
+            else map.put(sum, map.get(sum)+1);
+
+            if(map.containsKey(remaining)){
                 count+=map.get(remaining);
             }
         }
 
         return count;
     }
+
     public static void main(String[] args) {
-        
+        int[] nums = new int[]{3, 1, 2, 4};
+
+        System.err.println(subarrayWithSumK(nums, 6));
     }
 }
