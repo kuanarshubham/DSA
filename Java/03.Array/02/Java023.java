@@ -29,7 +29,7 @@ public class Java023 {
         }
     }
     public static void main(String[] args) {
-        int[][] mat = new int[][]{{1, 1, 1}, {1, 0, 1}, {1, 1, 1}};
+        //int[][] mat = new int[][]{{1, 1, 1}, {1, 0, 1}, {1, 1, 1}};
 
         
     }

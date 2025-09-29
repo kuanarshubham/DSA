@@ -8,7 +8,6 @@ public class Java015 {
     }
 
     public static void sort012Better(int[]nums){
-        int n=nums.length;
 
         int zero=0, one=0, two=0;
 

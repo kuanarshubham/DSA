@@ -15,7 +15,7 @@ public class Java024 {
     }
 
     public static void rotateImage(int[][]mat){
-        int rows = mat.length, cols = mat[0].length;
+        int rows = mat.length;
 
         for(int i=0; i<rows; i++){
             for(int j=0; j<=i; j++){
