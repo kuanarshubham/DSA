@@ -19,8 +19,32 @@ class Node{
 }
 
 public class Java075 {
-    static Node delete(Node head){
+    static Node delete(Node head, int place){
         if(head==null) return null;
-        if(head.next==null && t)
+        if(head.next==null && place==1) return null;
+
+        if(place==1) return head.next;
+
+        int i=2;
+
+        Node temp=head;
+
+        while(temp!=null){
+            if(place==i){
+                Node tempNextNext = temp.next.next;
+                tempNextNext.prev=temp;
+                temp.next=tempNextNext;
+                break;
+            }
+
+            i++;
+            temp=temp.next;
+        }
+
+        return head;
+    }
+
+    public static void main(String[] args) {
+        
     }
 }
