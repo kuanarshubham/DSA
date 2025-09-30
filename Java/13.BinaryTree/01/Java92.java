@@ -23,7 +23,7 @@ class Node {
 }
 
 public class Java92 {
-    static ArrayList<Integer> levelOrder(Node root) {
+    static ArrayList<ArrayList<Integer>> levelOrder(Node root) {
         Node temp = root;
 
         ArrayList<ArrayList<Integer>> ans = new ArrayList<>();

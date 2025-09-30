@@ -1,5 +1,8 @@
 // post order
 
+import java.util.ArrayList;
+import java.util.List;
+
 class Node{
     public int data;
     public Node left;
@@ -19,7 +22,7 @@ class Node{
 }
 
 public class Java91 {
-    static void helper(Node root, ArrayList<Integer>traversal){
+    static void helper(Node root, List<Integer>traversal){
         if(root==null) return;
 
         helper(root.left, traversal);
@@ -27,8 +30,8 @@ public class Java91 {
         traversal.add(root.data);
     }
 
-    static ArrayList<Integer> postorder(Node root){
-        ArrayList<Integer>traversal = new ArrayList<>();
+    static List<Integer> postorder(Node root){
+        List<Integer>traversal = new ArrayList<>();
 
         helper(root, traversal);
 
