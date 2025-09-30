@@ -1,5 +1,7 @@
 // inorder
 
+import java.util.ArrayList;
+
 class Node{
     public int data;
     public Node left;
@@ -19,4 +21,19 @@ class Node{
 }
 
 public class Java90 {
+    static void helper(Node root, ArrayList<Integer>traversal){
+        if(root==null) return;
+
+        helper(root.left, traversal);
+        traversal.add(root.data);
+        helper(root.right, traversal);
+    }
+
+    static ArrayList<Integer> inorder(Node root){
+        ArrayList<Integer>traversal = new ArrayList<>();
+
+        helper(root, traversal);
+
+        return traversal;
+    }
 }
