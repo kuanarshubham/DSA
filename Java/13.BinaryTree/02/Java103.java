@@ -1,6 +1,8 @@
 // Boundary Traversal of Binary Tree
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 class Node {
     public int data;
@@ -21,7 +23,21 @@ class Node {
 }
 
 public class Java103 {
-    static getAllthe
+    static void getAlltheLeaves(Node root, ArrayList<Integer>ans){
+        if(root==null) return;
+        if(root.left==null && root.right==null){
+            ans.add(root.data);
+            return;
+        }
+
+        if(root.left!=null){
+            getAlltheLeaves(root.left, ans);
+        }
+
+        if(root.right!=null){
+            getAlltheLeaves(root.right, ans);
+        }
+    }
     static ArrayList<Integer> boundaryList(Node root){
         if(root==null) return new ArrayList<>();
 
@@ -35,7 +51,22 @@ public class Java103 {
         }
 
         // take all the leave
-        
+        getAlltheLeaves(root, ans);
 
+        temp=root;
+        ArrayList<Integer>rightPart = new ArrayList<>();
+
+        while(temp.right!=null){
+            rightPart.add(temp.data);
+            temp=temp.right;
+        }
+
+        Collections.reverse(rightPart);
+
+        for(int num: rightPart){
+            ans.add(num);
+        }
+
+        return ans;
     }
 }
