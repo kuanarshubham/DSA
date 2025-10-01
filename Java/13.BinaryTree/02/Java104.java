@@ -55,7 +55,7 @@ public class Java104 {
                 map.put(y, new ArrayList<>());
             }
             
-            map.get(y).add(node.data)
+            map.get(y).add(node.data);
 
             if(node.left!=null) dq.push(new Pair<>(node.left, new Pair<>(x+1, y-1)));
 
