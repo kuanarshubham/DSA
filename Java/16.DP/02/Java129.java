@@ -11,8 +11,8 @@ public class Java129 {
 
         if(dp[row][col]!=-1) return dp[row][col];
 
-        int left = helper(mat, row, col-1);
-        int top = helper(mat, row-1, col);
+        int left = helper(mat, row, col-1, dp);
+        int top = helper(mat, row-1, col, dp);
 
         return  dp[row][col] = left+top;
     } 
@@ -36,10 +36,12 @@ public class Java129 {
 
         for(int i=0; i<totalRows; i++) Arrays.fill(dp[i], 0);
 
+        dp[0][0]=1;
+
         for(int row=1; row<totalRows; row++){
             for(int col=1; col<totalCols; col++){
                 int right = mat[row][col-1];
-                int bottom = mat[row+1][col];
+                int bottom = mat[row-1][col];
                 dp[row][col] = right+bottom;
             }
         }
@@ -48,6 +50,27 @@ public class Java129 {
     }
 
     static int space(int[][]mat){
-        
+        int totalRows = mat.length;
+        int totalCols = mat[0].length;
+
+        int[]prev = new int[totalCols];
+        int[] curr = new int[totalCols];
+
+        Arrays.fill(prev, 0);
+        Arrays.fill(curr, 0);
+
+        prev[0] = 1;
+
+        for(int row=1; row<totalRows; row++){
+            for(int col=1; col<totalCols; col++){
+                int right = curr[col-1];
+                int bottom = prev[col];
+                curr[row] = right+bottom;
+            }
+
+            prev = curr;
+        }
+
+        return prev[totalCols-1];
     }
 }
